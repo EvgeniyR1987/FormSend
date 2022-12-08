@@ -8,7 +8,7 @@ $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ru', 'phpmailer/language/');
 $mail->IsHTML(true);
 $mail->setFrom('comandatt@yandex.ru', 'Евгений');
-$mail->addAddres('comandatt@yandex.ru');
+$mail->addAddress('comandatt@yandex.ru');
 $mail->Subject = 'Привет!';
 $hand = "Правая";
 if($_POST['hand'] == "left") {
@@ -30,7 +30,7 @@ $body.='<p><strong>Возраст:</strong> '.$_POST['age'].'</p>';
 if(trim(!empty($_POST['message']))) {
 $body.='<p><strong>Сообщение:</strong> '.$_POST['message'].'</p>';
 }
-if(trim(!empty($_FILES['image']['tmp_name']))) {
+if(!empty($_FILES['image']['tmp_name'])) {
 $filePath = __DIR__ . "/files/" . $_FILES['image']['name'];
 if (copy($_FILES['image']['tmp_name'], $filePath)) {
 $fileAttach = $filePath;
